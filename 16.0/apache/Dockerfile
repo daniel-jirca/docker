@@ -1,5 +1,6 @@
 # DO NOT EDIT: created by update.sh from Dockerfile-debian.template
-FROM php:7.3-apache-buster
+FROM thenoots/arm-php:7.3.10-apache-buster
+#FROM php:7.3-apache-buster
 
 # entrypoint.sh and cron.sh dependencies
 RUN set -ex; \
@@ -55,7 +56,7 @@ RUN set -ex; \
     ; \
     \
 # pecl will claim success even if one install fails, so we need to perform each install separately
-    pecl install APCu-5.1.17; \
+    printf "\n" | pecl install APCu-5.1.17; \
     pecl install memcached-3.1.3; \
     pecl install redis-4.3.0; \
     pecl install imagick-3.4.4; \
